@@ -24,7 +24,7 @@ exports.list = async (req, res) => {
 };
 
 // { Update } - Controller - This will let us update our movies
-exports.update = (req, res) => {
+exports.update = async (req, res) => {
     try {
         const updateMovie = await Movie.updateOne({ name: "Mission Impossible", actor: "Tom Cruise - Vanessa Kirby" })
         res.status(200).send({ updateMovie });
@@ -35,9 +35,9 @@ exports.update = (req, res) => {
 };
 
 // { Delete } - Controller - This will let us delete movies
-exports.delete = (req, res) => {
+exports.deleteMovie = async (req, res) => {
     try {
-        const deleteMovie = Movie.deleteOne({ name: "Mission Impossible", actor: "Tom Cruise - Vanessa Kirby" });
+        const deleteMovie = await Movie.deleteOne({ name: "Mission Impossible", actor: "Tom Cruise - Vanessa Kirby" });
         res.status(200).send({ deleteMovie });
     } catch (error) {
         console.log(error);
