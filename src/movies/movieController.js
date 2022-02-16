@@ -25,8 +25,12 @@ exports.list = async (req, res) => {
 
 // { Update } - Controller - This will let us update our movies
 exports.update = async (req, res) => {
+    // Variables
+    const filter = { name: "James" };
+    const update = { name: "Bond 007", actor: "James Bond" };
+    
     try {
-        const updateMovie = await Movie.updateOne({ name: "Mission Impossible", actor: "Tom Cruise - Vanessa Kirby" })
+        const updateMovie = await Movie.updateOne(filter, update);
         res.status(200).send({ updateMovie });
     } catch (error) {
         console.log(error);
@@ -36,8 +40,10 @@ exports.update = async (req, res) => {
 
 // { Delete } - Controller - This will let us delete movies
 exports.deleteMovie = async (req, res) => {
+    const deletethis = { name: "Mission Impossible", actor: "Tom Cruise" };
+
     try {
-        const deleteMovie = await Movie.deleteOne({ name: "Mission Impossible", actor: "Tom Cruise - Vanessa Kirby" });
+        const deleteMovie = await Movie.deleteOne(deletethis);
         res.status(200).send({ deleteMovie });
     } catch (error) {
         console.log(error);
