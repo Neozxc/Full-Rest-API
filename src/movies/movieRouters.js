@@ -1,6 +1,7 @@
 // Imports
 const { Router } = require("express");
-const { add, list, update, deleteMovie } = require("./movieController");
+const { hashPass } = require("../middleware/protect");
+const { add, list, update, deleteMovie, protect } = require("./movieController");
 // Set it to variable 😛
 const MR = Router();
 
@@ -9,6 +10,7 @@ MR.post("/create", add);
 MR.get("/list", list);
 MR.put("/update", update);
 MR.delete("/delete", deleteMovie);
+MR.post("/user", protect);
 
 // Export
 module.exports = MR;

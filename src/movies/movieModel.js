@@ -6,18 +6,16 @@ const movieSchema = new mongoose.Schema({
 
     name: {
         type: String,
-        required: true,
         unique: true
     },
 
     actor: {
         type: String,
-        required: true
-    }
+    },
 });
 
 // Set it to variable
-const Movie = mongoose.model("Movie", movieSchema);
+const Movie = mongoose.model("Movies", movieSchema);
 
 // Export the variable
 module.exports = Movie;
