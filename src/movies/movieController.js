@@ -1,5 +1,4 @@
 // Import the model we made because we can!
-const res = require("express/lib/response");
 const Movie = require("./movieModel");
 
 // { Create } - Controller - This will let us create a new movie
@@ -36,7 +35,7 @@ exports.update = (req, res) => {
 };
 
 // { Delete } - Controller - This will let us delete movies
-exports.delete = () => {
+exports.delete = (req, res) => {
     try {
         const deleteMovie = Movie.deleteOne({ name: "Mission Impossible", actor: "Tom Cruise - Vanessa Kirby" });
         res.status(200).send({ deleteMovie });
