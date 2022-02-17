@@ -1,6 +1,5 @@
 // Imports
 const { Router } = require("express");
-const { hashPass } = require("../middleware/protect");
 const { add, list, update, deleteMovie, protect } = require("./movieController");
 // Set it to variable 😛
 const MR = Router();

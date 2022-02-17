@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 // Setup
 const movieSchema = new mongoose.Schema({
 
-    name: {
+    movie: {
         type: String,
         unique: true
     },

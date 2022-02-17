@@ -12,7 +12,9 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        // If we want users email to be encrypted
+        // bcrypt: true
     },
     pass: {
         type: String,
