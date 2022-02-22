@@ -1,11 +1,10 @@
 // Import the model we made because we can!
 const Movie = require("./movieModel");
-const User = require("./encryptModel");
 
 // { Create } - Controller - This will let us create a new movie
 exports.add = async (req, res) => {
     try {
-        const createMovie = await Movie.create({ name: "Fast&Furious", actor: "Vin Diesel - Paul Walker" });
+        const createMovie = await Movie.create(req.body);
         res.status(200).send({ createMovie });
         // Log it
         console.log("Successfully created movie!");
@@ -65,15 +64,15 @@ exports.deleteMovie = async (req, res) => {
 };
 
 // { Protect } - Controller - This will let us protect users password by hashing it
-exports.protect = async (req, res) => {
-    try {
-        const newUser = await User.create({ username: "sam932", email: "sam2985@gmail.com", pass: "sam129" });
-        res.status(200).send({ user: newUser });
-        // Log it
-        console.log("Successfully created user!");
-        console.log(newUser);
-    } catch (error) {
-        console.log(error);
-        res.status(500).send({ error: error.message });
-    }
-};
+// exports.protect = async (req, res) => {
+//     try {
+//         const newUser = await User.create(req.body);
+//         res.status(200).send({ user: newUser });
+//         // Log it
+//         console.log("Successfully created user!");
+//         console.log(newUser);
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).send({ error: error.message });
+//     }
+// };

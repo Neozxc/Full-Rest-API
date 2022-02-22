@@ -9,7 +9,6 @@ MR.post("/create", add);
 MR.get("/list", list);
 MR.put("/update", update);
 MR.delete("/delete", deleteMovie);
-MR.post("/user", protect);
 
 // Export
 module.exports = MR;

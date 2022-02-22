@@ -2,8 +2,7 @@
 const mongoose = require("mongoose");
 
 // Setup
-// Used mongoose-bcrypt pck. Much simplier much easier. 😛
-const userSchema = new mongoose.Schema({
+const userDatabase = new mongoose.Schema({
     username: {
         type: String,
         required: true,
@@ -25,10 +24,10 @@ const userSchema = new mongoose.Schema({
 });
 
 // Attach to predefined password
-userSchema.plugin(require('mongoose-bcrypt'));
+userDatabase.plugin(require('mongoose-bcrypt'));
 
 // Set it to variable
-const User = mongoose.model("User", userSchema);
+const UserDB = mongoose.model("UserDBs", userDatabase);
 
 // Export the variable
-module.exports = User;
+module.exports = UserDB;
